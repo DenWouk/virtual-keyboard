@@ -80,9 +80,6 @@ const keyCodeExc = [
   'ArrowDown',
   'ArrowLeft',
   'ArrowRight',
-  'F5',
-  'F12',
-  'NumpadEnter',
 ];
 
 const keyValueObj = {
