@@ -65,7 +65,7 @@ const keyCode = [
   'ControlRight',
 ];
 
-const keyCodeExc = [
+const keyCodeException = [
   'Backspace',
   'Delete',
   'CapsLock',
@@ -486,4 +486,4 @@ const keyValueObj = {
   },
 };
 
-export default { keyCode, keyCodeExc, keyValueObj };
+export default { keyCode, keyCodeException, keyValueObj };
