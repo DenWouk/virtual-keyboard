@@ -11,13 +11,13 @@ generalContainer.append(keyboardContainer);
 generalContainer.insertAdjacentHTML(
   'afterbegin',
   `
-<textarea inputmode="text" class="textarea"></textarea>`,
+<textarea class="textarea"></textarea>`,
 );
 
 generalContainer.insertAdjacentHTML(
   'beforeend',
   `
-    <p class="text"> - The keyboard was created in Windows OS.<br> 
+    <p class="under-keyboard-text"> - The keyboard was created in Windows OS.<br> 
      - To switch the language, use the combination: Ctrl + Alt.
     </p>
     `,

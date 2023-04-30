@@ -1,0 +1,153 @@
+$color1: #fafafa;
+$color2: #555454;
+$color3: #ffffff;
+
+$background1: #fafafa;
+$background2: #656565;
+$background3: #fbfbfb;
+$background4: #6d7273cf;
+$background5: #c8c8c8;
+
+$border1: 2px solid $color2;
+
+$box-shadow1: 0px 2px 10px 5px #edfbf9;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $background1;
+}
+
+.general-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  min-height: 95vh;
+
+  .textarea {
+    max-width: 1200px;
+    width: 100%;
+    height: 100px;
+    font-size: 1.65rem;
+    color: $color2;
+    border: $border1;
+    overflow: auto;
+  }
+
+  .keyboard-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    max-width: 1200px;
+    min-width: 615px;
+    height: 320px;
+    padding: 5px 0;
+    border: $border1;
+    border-radius: 5px;
+    background: $background2;
+
+    .btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 5.8%;
+      height: calc(20% - 5px);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: $color2;
+      border: $border1;
+      border-radius: 5px;
+      background: $background3;
+    }
+
+    .btn:active {
+      color: $color3;
+      background: $background4;
+      box-shadow: $box-shadow1;
+      transform: scale(1);
+      transition-property: background, color;
+      transition-duration: 0.2s;
+      transition-timing-function: ease-out;
+    }
+
+    .btn.active {
+      color: $color3;
+      background: $background4;
+      box-shadow: $box-shadow1;
+      transform: scale(1);
+      transition-property: background, color;
+      transition-duration: 0.2s;
+      transition-timing-function: ease-out;
+    }
+
+    .btn13 {
+      width: 13.4%;
+      background: $background5;
+    }
+
+    .btn14 {
+      width: 7%;
+      background: $background5;
+    }
+
+    .btn28,
+    .btn53,
+    .btn55,
+    .btn56,
+    .btn57,
+    .btn59,
+    .btn60,
+    .btn61,
+    .btn62,
+    .btn63 {
+      background: $background5;
+    }
+
+    .btn29 {
+      width: 12%;
+      background: $background5;
+    }
+
+    .btn29.active {
+      color: $color3;
+      background: $background4;
+    }
+
+    .btn41,
+    .btn42 {
+      width: 13.5%;
+      background: $background5;
+    }
+
+    .btn54 {
+      width: 12%;
+      background: $background5;
+    }
+
+    .btn58 {
+      width: 44.5%;
+    }
+  }
+
+  .under-keyboard-text {
+    margin: -20px 0 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $color2;
+  }
+}
+
+@media (max-width: 767px) {
+  .general-container {
+    .keyboard-container {
+      .btn {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
