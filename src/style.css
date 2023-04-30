@@ -107,6 +107,11 @@ body {
 .general-container .keyboard-container .btn58 {
   width: 44.5%;
 }
+.general-container .keyboard-container .btn64,
+.general-container .keyboard-container .btn65,
+.general-container .keyboard-container .btn66 {
+  display: none;
+}
 .general-container .under-keyboard-text {
   margin: -20px 0 0;
   font-size: 1.5rem;

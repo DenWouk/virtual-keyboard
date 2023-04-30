@@ -63,6 +63,9 @@ const keyCode = [
   'ArrowDown',
   'ArrowRight',
   'ControlRight',
+  'F5',
+  'F12',
+  'NumpadEnter',
 ];
 
 const keyCodeException = [
@@ -80,6 +83,9 @@ const keyCodeException = [
   'ArrowDown',
   'ArrowLeft',
   'ArrowRight',
+  'F5',
+  'F12',
+  'NumpadEnter',
 ];
 
 const keyValueObj = {
