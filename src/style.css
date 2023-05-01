@@ -1,55 +1,91 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  background-color: #d6d5d5;
 }
-
-.general-container {
+body .keyboard-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 50px;
-  min-height: 95vh;
-}
-.general-container .textarea {
-  max-width: 1200px;
+  gap: 20px;
   width: 100%;
-  height: 100px;
-  font-size: 1.65rem;
-  color: #555454;
-  border: 2px solid #555454;
-  overflow: auto;
-}
-.general-container .keyboard-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 5px;
   max-width: 1200px;
-  min-width: 615px;
-  height: 320px;
-  padding: 5px 0;
-  border: 2px solid #555454;
+  height: 60%;
+  padding: 20px 30px;
   border-radius: 5px;
   background: #656565;
+  box-shadow: 1px 2px 3px #151515;
 }
-.general-container .keyboard-container .btn {
+body .keyboard-container .information-text-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 5.8%;
-  height: calc(20% - 5px);
-  font-size: 1.1rem;
+  justify-content: space-between;
+  width: 100%;
+}
+body .keyboard-container .information-text-container .information-text {
+  margin: 0;
+  font-style: italic;
+  font-size: 1.2rem;
   font-weight: 600;
+  color: #c8c8c8;
+}
+body .keyboard-container .textarea {
+  max-width: 1200px;
+  width: 100%;
+  height: 22%;
+  padding: 5px;
+  font-size: 1.65rem;
   color: #555454;
   border: 2px solid #555454;
   border-radius: 5px;
   background: #fbfbfb;
+  overflow: auto;
+  outline: none;
+  resize: none;
 }
-.general-container .keyboard-container .btn:active {
+body .keyboard-container .buttons-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  height: 70%;
+}
+body .keyboard-container .buttons-container .buttons-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  height: calc(20% - 5px);
+}
+body .keyboard-container .buttons-container .buttons-row .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 6.1%;
+  height: 100%;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #555454;
+  border: 3px solid #fafafa;
+  border-right-color: #828282;
+  border-bottom-color: #828282;
+  border-radius: 5px;
+  background: #fbfbfb;
+  box-shadow: 1px 2px 3px #151515;
+}
+body .keyboard-container .buttons-container .buttons-row .btn:active {
   color: #ffffff;
   background: rgba(109, 114, 115, 0.8117647059);
   box-shadow: 0px 2px 10px 5px #edfbf9;
@@ -58,7 +94,7 @@ body {
   transition-duration: 0.2s;
   transition-timing-function: ease-out;
 }
-.general-container .keyboard-container .btn.active {
+body .keyboard-container .buttons-container .buttons-row .btn.active {
   color: #ffffff;
   background: rgba(109, 114, 115, 0.8117647059);
   box-shadow: 0px 2px 10px 5px #edfbf9;
@@ -67,60 +103,85 @@ body {
   transition-duration: 0.2s;
   transition-timing-function: ease-out;
 }
-.general-container .keyboard-container .btn13 {
-  width: 13.4%;
+body .keyboard-container .buttons-container .buttons-row .btn13 {
+  flex-grow: 1;
+  min-width: 13%;
   background: #c8c8c8;
 }
-.general-container .keyboard-container .btn14 {
-  width: 7%;
+body .keyboard-container .buttons-container .buttons-row .btn14 {
+  flex-grow: 1;
+  min-width: 7%;
   background: #c8c8c8;
 }
-.general-container .keyboard-container .btn28,
-.general-container .keyboard-container .btn53,
-.general-container .keyboard-container .btn55,
-.general-container .keyboard-container .btn56,
-.general-container .keyboard-container .btn57,
-.general-container .keyboard-container .btn59,
-.general-container .keyboard-container .btn60,
-.general-container .keyboard-container .btn61,
-.general-container .keyboard-container .btn62,
-.general-container .keyboard-container .btn63 {
+body .keyboard-container .buttons-container .buttons-row .btn28,
+body .keyboard-container .buttons-container .buttons-row .btn53,
+body .keyboard-container .buttons-container .buttons-row .btn55,
+body .keyboard-container .buttons-container .buttons-row .btn56,
+body .keyboard-container .buttons-container .buttons-row .btn57,
+body .keyboard-container .buttons-container .buttons-row .btn59,
+body .keyboard-container .buttons-container .buttons-row .btn60,
+body .keyboard-container .buttons-container .buttons-row .btn61,
+body .keyboard-container .buttons-container .buttons-row .btn62,
+body .keyboard-container .buttons-container .buttons-row .btn63 {
   background: #c8c8c8;
 }
-.general-container .keyboard-container .btn29 {
+body .keyboard-container .buttons-container .buttons-row .btn29 {
+  flex-grow: 1;
   width: 12%;
   background: #c8c8c8;
 }
-.general-container .keyboard-container .btn29.active {
+body .keyboard-container .buttons-container .buttons-row .btn29.active {
   color: #ffffff;
   background: rgba(109, 114, 115, 0.8117647059);
 }
-.general-container .keyboard-container .btn41,
-.general-container .keyboard-container .btn42 {
+body .keyboard-container .buttons-container .buttons-row .btn41 {
+  flex-grow: 1;
   width: 13.5%;
   background: #c8c8c8;
 }
-.general-container .keyboard-container .btn54 {
-  width: 12%;
+body .keyboard-container .buttons-container .buttons-row .btn42 {
+  flex-shrink: 1;
+  width: 15.5%;
   background: #c8c8c8;
 }
-.general-container .keyboard-container .btn58 {
-  width: 44.5%;
+body .keyboard-container .buttons-container .buttons-row .btn54 {
+  flex-grow: 1;
+  width: 12.7%;
+  background: #c8c8c8;
 }
-.general-container .keyboard-container .btn64,
-.general-container .keyboard-container .btn65,
-.general-container .keyboard-container .btn66 {
+body .keyboard-container .buttons-container .buttons-row .btn55 {
+  flex-grow: 1;
+  min-width: 6.8%;
+}
+body .keyboard-container .buttons-container .buttons-row .btn58 {
+  flex-grow: 1;
+  min-width: 44.5%;
+}
+body .keyboard-container .buttons-container .buttons-row .btn64,
+body .keyboard-container .buttons-container .buttons-row .btn65,
+body .keyboard-container .buttons-container .buttons-row .btn66 {
   display: none;
 }
-.general-container .under-keyboard-text {
-  margin: -20px 0 0;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #555454;
-}
 
+@media (max-width: 1200px) {
+  body {
+    padding: 0 10px;
+  }
+  body .keyboard-container .information-text-container .information-text {
+    font-size: 1.1rem;
+  }
+  body .keyboard-container .buttons-container .buttons-row .btn58 {
+    min-width: 47%;
+  }
+}
 @media (max-width: 767px) {
-  .general-container .keyboard-container .btn {
+  body {
+    padding: 0 10px;
+  }
+  body .keyboard-container .information-text-container .information-text {
+    font-size: 1.1rem;
+  }
+  body .keyboard-container .buttons-container .buttons-row .btn {
     font-size: 0.9rem;
   }
 }/*# sourceMappingURL=style.css.map */

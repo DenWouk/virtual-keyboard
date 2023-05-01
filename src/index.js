@@ -1,26 +1,28 @@
 import keyValues from './key-values.js';
 
-const generalContainer = document.createElement('div');
-generalContainer.className = 'general-container';
-document.body.append(generalContainer);
-
 const keyboardContainer = document.createElement('div');
 keyboardContainer.className = 'keyboard-container';
-generalContainer.append(keyboardContainer);
+document.body.append(keyboardContainer);
 
-generalContainer.insertAdjacentHTML(
+const buttonsContainer = document.createElement('div');
+buttonsContainer.className = 'buttons-container';
+keyboardContainer.append(buttonsContainer);
+
+keyboardContainer.insertAdjacentHTML(
   'afterbegin',
   `
-<textarea class="textarea"></textarea>`,
+    <textarea class="textarea" spellcheck="false"></textarea>
+  `,
 );
 
-generalContainer.insertAdjacentHTML(
-  'beforeend',
+keyboardContainer.insertAdjacentHTML(
+  'afterbegin',
   `
-    <p class="under-keyboard-text"> - The keyboard was created in Windows OS.<br> 
-     - To switch the language, use the combination: Ctrl + Alt.
-    </p>
-    `,
+    <div class="information-text-container">
+      <p class="information-text">Designed for Windows OS.</p>
+      <p class="information-text">Switch language (EN/BY): Ctrl + Alt.</p>
+    </div>
+  `,
 );
 
 let keyboardLayout = localStorage.getItem('layout');
@@ -52,13 +54,25 @@ function createKeyboardLayout() {
 }
 
 function createKeyboardBtns() {
+  let buttons = [];
+
   for (let i = 0; i < keyValues.keyCode.length; i += 1) {
-    keyboardContainer.insertAdjacentHTML(
-      'beforeend',
-      `
-        <button id="${keyValues.keyCode[i]}" class="btn btn${i}" data-key="${keyValues.keyCode[i]}"></button>`,
+    buttons.push(
+      `<button id="${keyValues.keyCode[i]}" class="btn btn${i}" data-key="${keyValues.keyCode[i]}"></button>`,
     );
   }
+
+  buttonsContainer.insertAdjacentHTML(
+    'beforeend',
+    `
+	<div class="buttons-row">${buttons.slice(0, 14).join('')}</div>
+	<div class="buttons-row">${buttons.slice(14, 29).join('')}</div>
+	<div class="buttons-row">${buttons.slice(29, 42).join('')}</div>
+	<div class="buttons-row">${buttons.slice(42, 55).join('')}</div>
+	<div class="buttons-row">${buttons.slice(55).join('')}</div>
+	`,
+  );
+
   createKeyboardLayout();
 }
 createKeyboardBtns();
@@ -210,13 +224,13 @@ function displayInTextareaOnclick(event) {
   }
 
   if (
-    event.target.classList.contains('btn42')
-    || event.target.classList.contains('btn54')
-    || event.target.classList.contains('btn55')
-    || event.target.classList.contains('btn56')
-    || event.target.classList.contains('btn57')
-    || event.target.classList.contains('btn59')
-    || event.target.classList.contains('btn63')
+    event.target.classList.contains('btn42') ||
+    event.target.classList.contains('btn54') ||
+    event.target.classList.contains('btn55') ||
+    event.target.classList.contains('btn56') ||
+    event.target.classList.contains('btn57') ||
+    event.target.classList.contains('btn59') ||
+    event.target.classList.contains('btn63')
   ) {
     btnCurrentValue = '';
   }
@@ -251,6 +265,7 @@ function displayInTextareaOnkeydown(event) {
       textarea.value += keyId.textContent;
     }
   }
+  textarea.scrollTop = textarea.scrollHeight;
 }
 document.addEventListener('keydown', displayInTextareaOnkeydown);
 
