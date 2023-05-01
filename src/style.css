@@ -11,7 +11,7 @@ body {
   width: 100vw;
   height: 100vh;
   padding: 20px;
-  background-color: #d6d5d5;
+  background: radial-gradient(100% 215.42% at 0% 0%, #f1f1f1 0%, #d1d1d1 100%);
 }
 body .keyboard-container {
   display: flex;
@@ -48,7 +48,7 @@ body .keyboard-container .textarea {
   color: #555454;
   border: 2px solid #555454;
   border-radius: 5px;
-  background: #fbfbfb;
+  background: radial-gradient(100% 215.42% at 0% 0%, #f1f1f1 0%, #d1d1d1 100%);
   overflow: auto;
   outline: none;
   resize: none;
@@ -88,7 +88,7 @@ body .keyboard-container .buttons-container .buttons-row .btn {
 body .keyboard-container .buttons-container .buttons-row .btn:active {
   color: #ffffff;
   background: rgba(109, 114, 115, 0.8117647059);
-  box-shadow: 0px 2px 10px 5px #edfbf9;
+  box-shadow: 0px 1px 7px 3px #edfbf9;
   transform: scale(1);
   transition-property: background, color;
   transition-duration: 0.2s;
@@ -97,7 +97,7 @@ body .keyboard-container .buttons-container .buttons-row .btn:active {
 body .keyboard-container .buttons-container .buttons-row .btn.active {
   color: #ffffff;
   background: rgba(109, 114, 115, 0.8117647059);
-  box-shadow: 0px 2px 10px 5px #edfbf9;
+  box-shadow: 0px 1px 7px 3px #edfbf9;
   transform: scale(1);
   transition-property: background, color;
   transition-duration: 0.2s;

@@ -4,7 +4,7 @@ $color3: #ffffff;
 $color4: #c8c8c8;
 $color5: #828282;
 
-$background1: #d6d5d5;
+$background1: radial-gradient(100% 215.42% at 0% 0%, #f1f1f1 0%, #d1d1d1 100%);
 $background2: #656565;
 $background3: #fbfbfb;
 $background4: #6d7273cf;
@@ -13,7 +13,7 @@ $background5: #c8c8c8;
 $border1: 2px solid $color2;
 $border2: 3px solid $color1;
 
-$box-shadow1: 0px 2px 10px 5px #edfbf9;
+$box-shadow1: 0px 1px 7px 3px #edfbf9;
 $box-shadow2: 1px 2px 3px #151515;
 
 * {
@@ -29,7 +29,7 @@ body {
   width: 100vw;
   height: 100vh;
   padding: 20px;
-  background-color: $background1;
+  background: $background1;
 
   .keyboard-container {
     display: flex;
@@ -68,7 +68,7 @@ body {
       color: $color2;
       border: $border1;
       border-radius: 5px;
-      background: $background3;
+      background: $background1;
       overflow: auto;
       outline: none;
       resize: none;

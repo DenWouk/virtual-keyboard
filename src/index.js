@@ -54,7 +54,7 @@ function createKeyboardLayout() {
 }
 
 function createKeyboardBtns() {
-  let buttons = [];
+  const buttons = [];
 
   for (let i = 0; i < keyValues.keyCode.length; i += 1) {
     buttons.push(
@@ -65,12 +65,12 @@ function createKeyboardBtns() {
   buttonsContainer.insertAdjacentHTML(
     'beforeend',
     `
-	<div class="buttons-row">${buttons.slice(0, 14).join('')}</div>
-	<div class="buttons-row">${buttons.slice(14, 29).join('')}</div>
-	<div class="buttons-row">${buttons.slice(29, 42).join('')}</div>
-	<div class="buttons-row">${buttons.slice(42, 55).join('')}</div>
-	<div class="buttons-row">${buttons.slice(55).join('')}</div>
-	`,
+    <div class="buttons-row">${buttons.slice(0, 14).join('')}</div>
+    <div class="buttons-row">${buttons.slice(14, 29).join('')}</div>
+    <div class="buttons-row">${buttons.slice(29, 42).join('')}</div>
+    <div class="buttons-row">${buttons.slice(42, 55).join('')}</div>
+    <div class="buttons-row">${buttons.slice(55).join('')}</div>
+    `,
   );
 
   createKeyboardLayout();
@@ -224,13 +224,13 @@ function displayInTextareaOnclick(event) {
   }
 
   if (
-    event.target.classList.contains('btn42') ||
-    event.target.classList.contains('btn54') ||
-    event.target.classList.contains('btn55') ||
-    event.target.classList.contains('btn56') ||
-    event.target.classList.contains('btn57') ||
-    event.target.classList.contains('btn59') ||
-    event.target.classList.contains('btn63')
+    event.target.classList.contains('btn42')
+    || event.target.classList.contains('btn54')
+    || event.target.classList.contains('btn55')
+    || event.target.classList.contains('btn56')
+    || event.target.classList.contains('btn57')
+    || event.target.classList.contains('btn59')
+    || event.target.classList.contains('btn63')
   ) {
     btnCurrentValue = '';
   }
