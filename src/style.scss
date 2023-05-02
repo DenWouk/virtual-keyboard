@@ -39,11 +39,12 @@ body {
     gap: 20px;
     width: 100%;
     max-width: 1200px;
-    height: 60%;
+	min-width: 700px;
+    height: 550px;
     padding: 20px 30px;
     border-radius: 5px;
     background: $background2;
-	box-shadow: $box-shadow2;
+    box-shadow: $box-shadow2;
 
     .information-text-container {
       display: flex;
@@ -223,7 +224,7 @@ body {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 870px) {
   body {
     padding: 0 10px;
 
