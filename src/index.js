@@ -29,7 +29,6 @@ let keyboardLayout = localStorage.getItem('layout');
 let capsStatus;
 let keyId;
 
-const shiftBtns = document.querySelectorAll('.btn42, .btn54');
 const textarea = document.querySelector('.textarea');
 
 if (keyboardLayout === null) {
@@ -127,6 +126,8 @@ document.addEventListener('keyup', (event) => {
   }
 });
 
+const shiftBtns = document.querySelectorAll('.btn42, .btn54');
+
 function changeKeyboardShiftOn() {
   if (keyboardLayout === 'en') {
     capsStatus = 'off';
@@ -136,10 +137,10 @@ function changeKeyboardShiftOn() {
     keyboardLayout = 'byShift';
   } else if (keyboardLayout === 'enCaps') {
     capsStatus = 'on';
-    keyboardLayout = 'enShift';
+    keyboardLayout = 'enShiftWithCaps';
   } else if (keyboardLayout === 'byCaps') {
     capsStatus = 'on';
-    keyboardLayout = 'byShift';
+    keyboardLayout = 'byShiftWithCaps';
   }
 
   createKeyboardLayout();
@@ -150,9 +151,9 @@ function changeKeyboardShiftOff() {
     keyboardLayout = 'en';
   } else if (keyboardLayout === 'byShift' && capsStatus === 'off') {
     keyboardLayout = 'by';
-  } else if (keyboardLayout === 'enShift' && capsStatus === 'on') {
+  } else if (keyboardLayout === 'enShiftWithCaps' && capsStatus === 'on') {
     keyboardLayout = 'enCaps';
-  } else if (keyboardLayout === 'byShift' && capsStatus === 'on') {
+  } else if (keyboardLayout === 'byShiftWithCaps' && capsStatus === 'on') {
     keyboardLayout = 'byCaps';
   }
 
