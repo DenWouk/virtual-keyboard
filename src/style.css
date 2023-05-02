@@ -21,7 +21,8 @@ body .keyboard-container {
   gap: 20px;
   width: 100%;
   max-width: 1200px;
-  height: 60%;
+  min-width: 700px;
+  height: 550px;
   padding: 20px 30px;
   border-radius: 5px;
   background: #656565;
@@ -174,7 +175,7 @@ body .keyboard-container .buttons-container .buttons-row .btn66 {
     min-width: 47%;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 870px) {
   body {
     padding: 0 10px;
   }
