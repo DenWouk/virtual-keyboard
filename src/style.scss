@@ -1,0 +1,247 @@
+$color1: #fafafa;
+$color2: #555454;
+$color3: #ffffff;
+$color4: #c8c8c8;
+$color5: #828282;
+
+$background1: radial-gradient(100% 215.42% at 0% 0%, #f1f1f1 0%, #d1d1d1 100%);
+$background2: #656565;
+$background3: #fbfbfb;
+$background4: #6d7273cf;
+$background5: #c8c8c8;
+
+$border1: 2px solid $color2;
+$border2: 3px solid $color1;
+
+$box-shadow1: 0px 1px 7px 3px #edfbf9;
+$box-shadow2: 1px 2px 3px #151515;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  background: $background1;
+
+  .keyboard-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    min-width: 700px;
+    height: 550px;
+    padding: 20px 30px;
+    border-radius: 5px;
+    background: $background2;
+    box-shadow: $box-shadow2;
+
+    .information-text-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      .information-text {
+        margin: 0;
+        font-style: italic;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: $color4;
+      }
+    }
+
+    .textarea {
+      max-width: 1200px;
+      width: 100%;
+      height: 22%;
+      padding: 5px;
+      font-size: 1.65rem;
+      color: $color2;
+      border: $border1;
+      border-radius: 5px;
+      background: $background1;
+      overflow: auto;
+      outline: none;
+      resize: none;
+    }
+
+    .buttons-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 100%;
+      height: 70%;
+
+      .buttons-row {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        width: 100%;
+        height: calc(20% - 5px);
+
+        .btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 6.1%;
+          height: 100%;
+          font-size: 1.1rem;
+          font-weight: 600;
+          color: $color2;
+          border: $border2;
+          border-right-color: $color5;
+          border-bottom-color: $color5;
+          border-radius: 5px;
+          background: $background3;
+          box-shadow: $box-shadow2;
+        }
+
+        .btn:active {
+          color: $color3;
+          background: $background4;
+          box-shadow: $box-shadow1;
+          transform: scale(1);
+          transition-property: background, color;
+          transition-duration: 0.2s;
+          transition-timing-function: ease-out;
+        }
+
+        .btn.active {
+          color: $color3;
+          background: $background4;
+          box-shadow: $box-shadow1;
+          transform: scale(1);
+          transition-property: background, color;
+          transition-duration: 0.2s;
+          transition-timing-function: ease-out;
+        }
+
+        .btn13 {
+          flex-grow: 1;
+          min-width: 13%;
+          background: $background5;
+        }
+
+        .btn14 {
+          flex-grow: 1;
+          min-width: 7%;
+          background: $background5;
+        }
+
+        .btn28,
+        .btn53,
+        .btn55,
+        .btn56,
+        .btn57,
+        .btn59,
+        .btn60,
+        .btn61,
+        .btn62,
+        .btn63 {
+          background: $background5;
+        }
+
+        .btn29 {
+          flex-grow: 1;
+          width: 12%;
+          background: $background5;
+        }
+
+        .btn29.active {
+          color: $color3;
+          background: $background4;
+        }
+
+        .btn41 {
+          flex-grow: 1;
+          width: 13.5%;
+          background: $background5;
+        }
+
+        .btn42 {
+          flex-shrink: 1;
+          width: 15.5%;
+          background: $background5;
+        }
+
+        .btn54 {
+          flex-grow: 1;
+          width: 12.7%;
+          background: $background5;
+        }
+
+        .btn55 {
+          flex-grow: 1;
+          min-width: 6.8%;
+        }
+
+        .btn58 {
+          flex-grow: 1;
+          min-width: 44.5%;
+        }
+
+        .btn64,
+        .btn65,
+        .btn66 {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  body {
+    padding: 0 10px;
+
+    .keyboard-container {
+      .information-text-container {
+        .information-text {
+          font-size: 1.1rem;
+        }
+      }
+
+      .buttons-container {
+        .buttons-row {
+          .btn58 {
+            min-width: 47%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 870px) {
+  body {
+    padding: 0 10px;
+
+    .keyboard-container {
+      .information-text-container {
+        .information-text {
+          font-size: 1.1rem;
+        }
+      }
+
+      .buttons-container {
+        .buttons-row {
+          .btn {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+}
