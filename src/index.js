@@ -179,32 +179,34 @@ function focusInTextarea() {
   textarea.focus();
 }
 focusInTextarea();
+
 document.addEventListener('click', focusInTextarea);
 document.addEventListener('keydown', focusInTextarea);
 
 function displayInTextareaOnclick(event) {
   let btnCurrentValue = event.target.textContent;
+  let start = textarea.selectionStart;
+  const end = textarea.selectionEnd;
 
   if (!event.target.classList.contains('btn')) return;
 
   if (event.target.classList.contains('btn13')) {
     btnCurrentValue = '';
-    const pos = textarea.selectionStart;
-    textarea.value = textarea.value.slice(0, pos - 1) + textarea.value.slice(pos);
-    textarea.setSelectionRange(pos - 1, pos - 1);
+    textarea.value = textarea.value.slice(0, start - 1) + textarea.value.slice(start);
+    textarea.setSelectionRange(start - 1, start - 1);
   }
 
   if (event.target.classList.contains('btn14')) {
     btnCurrentValue = '    ';
+    textarea.value = `${textarea.value.slice(0, start)}${btnCurrentValue}${textarea.value.slice(start)}`;
+    textarea.setSelectionRange(start + 4, start + 4);
+    return;
   }
 
   if (event.target.classList.contains('btn28')) {
     btnCurrentValue = '';
-
-    const pos = textarea.selectionStart;
-
-    textarea.value = textarea.value.slice(0, pos) + textarea.value.slice(pos + 1);
-    textarea.setSelectionRange(pos, pos);
+    textarea.value = textarea.value.slice(0, start) + textarea.value.slice(start + 1);
+    textarea.setSelectionRange(start, start);
   }
 
   if (event.target.classList.contains('btn29')) {
@@ -213,57 +215,84 @@ function displayInTextareaOnclick(event) {
   }
 
   if (event.target.classList.contains('btn41')) {
-    btnCurrentValue = '';
-
-    const start = textarea.selectionStart;
-    const end = textarea.selectionEnd;
     const cursor = `${textarea.value.slice(0, start)}\n`;
 
+    btnCurrentValue = '';
     textarea.value = `${textarea.value.slice(0, start)}\n${textarea.value.slice(end, textarea.value.length)}`;
-    textarea.focus();
     textarea.setSelectionRange(cursor.length, cursor.length);
   }
 
+  if (event.target.classList.contains('btn53')) {
+    btnCurrentValue = '';
+    textarea.setSelectionRange(0, 0);
+    return;
+  }
+  if (event.target.classList.contains('btn60')) {
+    btnCurrentValue = '';
+    textarea.setSelectionRange(start - 1, start - 1);
+    return;
+  }
+  if (event.target.classList.contains('btn61')) {
+    btnCurrentValue = '';
+    textarea.setSelectionRange(textarea.value.length, textarea.value.length);
+    return;
+  }
+
+  if (event.target.classList.contains('btn62')) {
+    btnCurrentValue = '';
+    textarea.setSelectionRange(start + 1, start + 1);
+    return;
+  }
+
   if (
-    event.target.classList.contains('btn42')
-    || event.target.classList.contains('btn54')
-    || event.target.classList.contains('btn55')
-    || event.target.classList.contains('btn56')
-    || event.target.classList.contains('btn57')
-    || event.target.classList.contains('btn59')
-    || event.target.classList.contains('btn63')
+    event.target.classList.contains('btn42') ||
+    event.target.classList.contains('btn54') ||
+    event.target.classList.contains('btn55') ||
+    event.target.classList.contains('btn56') ||
+    event.target.classList.contains('btn57') ||
+    event.target.classList.contains('btn59') ||
+    event.target.classList.contains('btn63')
   ) {
     btnCurrentValue = '';
+    return;
   }
 
   if (event.target.classList.contains('btn58')) {
     btnCurrentValue = ' ';
+    textarea.value = `${textarea.value.slice(0, start)}${btnCurrentValue}${textarea.value.slice(start)}`;
+    textarea.setSelectionRange(start + 1, start + 1);
+    return;
   }
 
-  textarea.value += `${btnCurrentValue}`;
+  textarea.value = `${textarea.value.slice(0, start)}${btnCurrentValue}${textarea.value.slice(start)}`;
+  textarea.setSelectionRange(start + 1, start + 1);
 }
 document.addEventListener('click', displayInTextareaOnclick);
 
 function displayInTextareaOnkeydown(event) {
+  let start = textarea.selectionStart;
+
   for (let i = 0; i < keyValues.keyCodeException.length; i += 1) {
     keyId = document.getElementById(`${keyValues.keyCodeException[i]}`);
     if (event.code === keyId.id) return;
   }
 
   if (event.code === 'Tab') {
-    textarea.value += '    ';
+    textarea.value = `${textarea.value.slice(0, start)}    ${textarea.value.slice(start)}`;
+    textarea.setSelectionRange(start + 4, start + 4);
     return;
   }
 
   if (event.code === 'AltLeft' || event.code === 'AltRight') {
-    textarea.value += '';
+    textarea.value = `${textarea.value.slice(0, start)}${textarea.value.slice(start)}`;
     return;
   }
 
   for (let i = 0; i < keyValues.keyCode.length; i += 1) {
     keyId = document.getElementById(`${keyValues.keyCode[i]}`);
     if (event.code === keyId.id) {
-      textarea.value += keyId.textContent;
+      textarea.value = `${textarea.value.slice(0, start)}${keyId.textContent}${textarea.value.slice(start)}`;
+      textarea.setSelectionRange(start + 1, start + 1);
     }
   }
   textarea.scrollTop = textarea.scrollHeight;
